@@ -1,0 +1,109 @@
+{
+  "name": "vue-template",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "NODE_ENV=development webpack --progress --config tools/webpack/dll.js",
+    "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
+    "build": "run-s clean build:dll build:source",
+    "build:source": "NODE_ENV=production webpack --progress --config tools/webpack/production.js",
+    "build:dll": "NODE_ENV=production webpack --progress --config tools/webpack/dll.js",
+    "build:check": "run-s build server",
+    "clean": "rimraf build",
+    "server": "http-server ./build -p 23000 -o --cors",
+    "safe-guard": "lint-staged",
+    "prettier": "run-p prettier:*",
+    "prettier:style": "prettier --write 'src/**/*.css'",
+    "prettier:script": "prettier --write 'src/**/*.ts'",
+    "prettier:json": "prettier --write 'src/**/*.json'",
+    "prettier:vue": "prettier --write 'src/**/*.vue'",
+    "lint": "run-p lint:*",
+    "lint:style": "stylelint 'src/**/*.css'",
+    "lint:script": "tslint --format stylish 'src/**/*.ts'",
+    "lint:vue": "stylelint --config .stylelintvuerc 'src/**/*.vue'",
+    "precommit": "run-s safe-guard",
+    "tsc": "tsc"
+  },
+  "browserslist": [
+    "ie 11",
+    "ios >= 10",
+    "android >= 4.4",
+    "> 1% in JP",
+    "not ie <= 10",
+    "not chrome 49"
+  ],
+  "lint-staged": {
+    "subTaskConcurrency": 1,
+    "linters": {
+      "*.ts": [
+        "prettier:script",
+        "lint:script",
+        "git add src/**/*.ts"
+      ],
+      "*.css": [
+        "prettier:style",
+        "lint:style",
+        "git add src/**/*.css"
+      ],
+      "*.json": [
+        "prettier:json",
+        "git add src/**/*.json"
+      ],
+      "*.vue": [
+        "prettier:vue",
+        "lint:vue",
+        "git add src/**/*.vue"
+      ]
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.6",
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^4.4.1",
+    "css-loader": "^0.28.9",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "globby": "^7.1.1",
+    "handlebars": "^4.0.11",
+    "handlebars-loader": "^1.6.0",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "npm-run-all": "^4.1.2",
+    "postcss-color-hex-alpha": "^3.0.0",
+    "postcss-custom-media": "^6.0.0",
+    "postcss-custom-properties": "^6.2.0",
+    "postcss-fixes": "^2.0.1",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.1.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^3.0.0",
+    "postcss-simple-vars": "^4.1.0",
+    "postcss-url": "^7.3.0",
+    "prettier": "^1.10.2",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.20.1",
+    "stylelint": "^8.4.0",
+    "stylelint-config-framelunch": "framelunch/stylelint-config-framelunch#v0.3.0",
+    "stylelint-processor-html": "^1.0.0",
+    "ts-loader": "^3.5.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.6.0",
+    "typescript": "^2.7.1",
+    "vue-loader": "^14.1.1",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dashboard": "^1.1.1",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "libraries-frontend-framelunch": "framelunch/libraries-frontend-framelunch#0.3.2",
+    "sanitize.css": "^5.0.0",
+    "vue": "^2.5.13",
+    "vue-property-decorator": "^6.0.0"
+  }
+}

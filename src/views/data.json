@@ -1,0 +1,23 @@
+{
+    "common": {
+        "lang": "ja"
+    },
+    "index": {
+        "title": "top",
+        "description": "This is top page",
+        "styles": ["/css/index.css"],
+        "scripts": ["/js/index.js"],
+        "metaImage": "https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image",
+        "og": {
+            "type": "blog",
+            "image": "https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image",
+            "siteName": "Testsite",
+            "url": "http://aaa.com"
+        },
+        "twitter": {
+            "card": "https://dummyimage.com/600x400/333/ddd.png&text=Dummy+image",
+            "site": "http://aaa.com"
+        },
+        "ga": "__GA__"
+    }
+}

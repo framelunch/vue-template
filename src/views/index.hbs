@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{{#with htmlWebpackPlugin.options.conf}}
+<html lang="{{lang}}">
+{{include 'common/_head.hbs'}}
+<body>
+  <div id="mount-point"></div>
+  {{include 'common/_foot.hbs'}}
+</body>
+</html>
+{{/with}}

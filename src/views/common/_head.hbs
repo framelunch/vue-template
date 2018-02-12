@@ -1,0 +1,35 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+
+  <meta itemprop="name" content="{{title}}" />
+  <meta itemprop="description" content="{{description}}" />
+{{#if metaImage}}
+  <meta itemprop="image" content="{{{metaImage}}}" />
+{{/if}}
+
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:description" content="{{description}}" />
+{{#if og}}
+  {{#with og}}
+  <meta property="og:type" content="{{type}}" />
+  <meta property="og:image" content="{{{image}}}" />
+  <meta property="og:url" content="{{{url}}}" />
+  <meta property="og:site_name" content="{{siteName}}" />
+  {{/with}}
+{{/if}}
+{{#if twitter}}
+  {{#with twitter}}
+  <meta name="twitter:card" content="{{{card}}}" />
+  <meta name="twitter:site" content="{{{site}}}" />
+  {{/with}}
+{{/if}}
+{{#if styles}}
+  {{#each styles}}
+  <link rel="stylesheet" href="{{{this}}}">
+  {{/each}}
+{{/if}}
+</head>
