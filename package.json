@@ -4,15 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "postinstall": "NODE_ENV=development webpack --progress --config tools/webpack/dll.js",
-    "start": "NODE_ENV=development webpack-dashboard -c cyan -- npm run start:plain",
-    "start:plain": "webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
+    "postinstall": "cross-env NODE_ENV=development webpack --progress --config tools/webpack/dll.js",
+    "start": "webpack-dashboard -c cyan -- npm run start:plain",
+    "start:plain": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
     "build": "run-s clean build:dll build:source",
-    "build:source": "NODE_ENV=production webpack --progress --config tools/webpack/production.js",
-    "build:dll": "NODE_ENV=production webpack --progress --config tools/webpack/dll.js",
+    "build:source": "cross-env NODE_ENV=production webpack --progress --config tools/webpack/production.js",
+    "build:dll": "cross-env NODE_ENV=production webpack --progress --config tools/webpack/dll.js",
     "build:check": "run-s build server",
     "clean": "rimraf build",
-    "server": "http-server ./build -p 23000 -o --cors",
+    "server": "cross-env NODE_ENV=production http-server ./build -p 23000 -o --cors",
+    "test": "cross-env NODE_ENV=test jest",
     "safe-guard": "lint-staged",
     "prettier": "run-p prettier:*",
     "prettier:style": "prettier --write 'src/**/*.css'",
@@ -60,11 +61,26 @@
       ]
     }
   },
+  "jest": {
+    "moduleFileExtensions": [
+      "vue",
+      "ts",
+      "js"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
+      ".(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(\\.(test|spec))\\.(ts|tsx)$"
+  },
   "devDependencies": {
+    "@types/jest": "^22.1.2",
+    "@vue/test-utils": "^1.0.0-beta.11",
     "autoprefixer": "^7.2.6",
     "browser-sync": "^2.23.6",
     "browser-sync-webpack-plugin": "^2.0.1",
     "copy-webpack-plugin": "^4.4.1",
+    "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
     "cssnano": "^3.10.0",
     "eslint": "^4.17.0",
@@ -82,6 +98,8 @@
     "image-webpack-loader": "^4.1.0",
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-webpack-plugin": "^2.0.0",
+    "jest": "^22.2.2",
+    "jest-vue-preprocessor": "^1.3.1",
     "lint-staged": "^6.1.0",
     "npm-run-all": "^4.1.2",
     "postcss-color-hex-alpha": "^3.0.0",
@@ -102,6 +120,7 @@
     "stylelint-config-framelunch": "framelunch/stylelint-config-framelunch#v0.3.0",
     "stylelint-processor-html": "^1.0.0",
     "svg-inline-loader": "^0.8.0",
+    "ts-jest": "^22.0.4",
     "ts-loader": "^3.5.0",
     "typescript": "^2.7.1",
     "typescript-eslint-parser": "^13.0.0",
