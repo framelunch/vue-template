@@ -50,13 +50,12 @@ vendor.bundleのかわりにdll化。はやいらしい
 
 ### vue
 
-* sourcemapが効かない
-    * 謎。TypeScriptのせい？
+* ~~sourcemapが効かない~~
+    * ~~謎。TypeScriptのせい？~~
+    * console.logとかで該当位置をconsoleに落として、そこからファイル名リンク踏むと辿れる。
 
 ### webpack
 
-* dllの恩恵をdevelopmentだと受けられない？
-    * ファイルサイズがかわんない気がする…けどdllの読み込みをコメントアウトするとエラーになるから読んではいるっぽい
 * handlebarsのhelperまわりでWARNINGが出ている
     * 出力されるhtmlに問題がないので無視 うっかりこの辺のhelperがbundleされてる気配もなし
 

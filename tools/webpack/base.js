@@ -125,7 +125,7 @@ module.exports = {
     }),
     new webpack.DllReferencePlugin({
       manifest,
-      context: __dirname,
+      context: process.cwd(),
     }),
   ],
 

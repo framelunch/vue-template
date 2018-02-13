@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "NODE_ENV=development webpack --progress --config tools/webpack/dll.js",
-    "start": "NODE_ENV=development webpack-dashboard -c cyan -- webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
+    "start": "NODE_ENV=development webpack-dashboard -c cyan -- npm run start:plain",
+    "start:plain": "webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
     "build": "run-s clean build:dll build:source",
     "build:source": "NODE_ENV=production webpack --progress --config tools/webpack/production.js",
     "build:dll": "NODE_ENV=production webpack --progress --config tools/webpack/dll.js",
@@ -21,7 +22,9 @@
     "lint": "run-p lint:*",
     "lint:style": "stylelint 'src/**/*.css'",
     "lint:script": "eslint --ext .ts 'src/**/*.ts'",
-    "lint:vue": "stylelint --config .stylelintvuerc 'src/**/*.vue' && eslint --ext .vue -c .eslintvuerc 'src/**/*.vue'",
+    "lint:vue": "run-p lint:vue:*",
+    "lint:vue:style": "stylelint --config .stylelintvuerc 'src/**/*.vue'",
+    "lint:vue:script": "eslint --ext .vue -c .eslintvuerc 'src/**/*.vue'",
     "precommit": "run-s safe-guard",
     "tsc": "tsc"
   },
