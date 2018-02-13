@@ -59,8 +59,6 @@ vendor.bundleのかわりにdll化。はやいらしい
     * ファイルサイズがかわんない気がする…けどdllの読み込みをコメントアウトするとエラーになるから読んではいるっぽい
 * handlebarsのhelperまわりでWARNINGが出ている
     * 出力されるhtmlに問題がないので無視 うっかりこの辺のhelperがbundleされてる気配もなし
-* 画像圧縮
-    * めんどくさくてまだ
 
 ## Prettierのすすめ
 
@@ -95,7 +93,8 @@ commit時に勝手にコードを整形してくれる。
 
 ### IntelliJ設定
 
-TODO
+[この辺](https://qiita.com/kouchi67/items/6d3b5cf66f57c4ff6600)を参考に。
+
 
 ## TODO
 

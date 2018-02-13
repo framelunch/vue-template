@@ -1,10 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { default: ImageminPlugin } = require('imagemin-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
 
-const { entry, output, resolve, module: { rules }, plugins, views, paths } = require('./base');
+const { entry, output, resolve, module: { rules }, plugins, views, paths, imageMin } = require('./base');
 const viewData = require(path.join(paths.view, '/data.json'));
 
 const appendRules = [
@@ -45,6 +47,16 @@ module.exports = {
         'vendor-manifest.json',
       ] }
     ),
+    new ImageminPlugin({
+      test: /.{jpg,gif,png}$/,
+      optipng: null,
+      jpegtran: null,
+      gifsicle: imageMin.gif,
+      pngquant: imageMin.png,
+      plugins: [
+        imageminMozjpeg(imageMin.jpg),
+      ],
+    }),
     new ExtractTextPlugin('css/[name].css'),
     ...views.map(({ template, filename }) => new HtmlWebpackPlugin({
       template,

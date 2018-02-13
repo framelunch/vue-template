@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "NODE_ENV=development webpack --progress --config tools/webpack/dll.js",
-    "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
+    "start": "NODE_ENV=development webpack-dashboard -c cyan -- webpack-dev-server --inline --hot --history-api-fallback --progress --color --config tools/webpack/development.js",
     "build": "run-s clean build:dll build:source",
     "build:source": "NODE_ENV=production webpack --progress --config tools/webpack/production.js",
     "build:dll": "NODE_ENV=production webpack --progress --config tools/webpack/dll.js",
@@ -76,6 +76,9 @@
     "html-webpack-plugin": "^2.30.1",
     "http-server": "^0.11.1",
     "husky": "^0.14.3",
+    "image-webpack-loader": "^4.1.0",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-webpack-plugin": "^2.0.0",
     "lint-staged": "^6.1.0",
     "npm-run-all": "^4.1.2",
     "postcss-color-hex-alpha": "^3.0.0",

@@ -10,6 +10,7 @@
     "typescript"
   ],
   "rules": {
+    "no-console": "warn",
     // 未使用変数 警告 ただし、先頭に_のついている変数、引数はOKとする
     "no-unused-vars": ["warn", {
       "caughtErrors": "all",
