@@ -26,7 +26,6 @@ Vueを用いて静的サイトを作成するテンプレ候補
 
 * vueをTypeScriptで書きたかったため
 * 型だけならflowでもいいんだけど[公式ドキュメントでもTypeScriptが激推しされてた](https://jp.vuejs.org/v2/guide/typescript.html)ので
-* 副作用としてESLintからTSLintへ変更(TSLintの設定はまだ全然つめていない)
 
 #### webpackでdll使った
 
@@ -34,7 +33,7 @@ vendor.bundleのかわりにdll化。はやいらしい
 
 #### commit時のフック処理
 
-`src` の中の`.ts`, `.css`, `.json`, `.vue`を整形(prettier)し、lintかけてダメならエラー(commitさせない)
+`src` の中の`.ts`, `.css`, `.json`, `.vue`を整形(prettier)し、lintかけてダメならエラー(commitさせない)
 
 #### Prettier
 
@@ -53,9 +52,6 @@ vendor.bundleのかわりにdll化。はやいらしい
 
 * sourcemapが効かない
     * 謎。TypeScriptのせい？
-* TSLintが効かない
-    * 仕様。
-    * ESLintをTypeScriptに対応させるプラグインもあるが、そうすると今度はvueをチェックできないというジレンマ
 
 ### webpack
 
