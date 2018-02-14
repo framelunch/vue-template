@@ -1,3 +1,5 @@
+/* eslint-disable import/export */
+
 declare module '*.md' {
   const content: string;
 

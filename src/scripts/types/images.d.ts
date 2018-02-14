@@ -1,3 +1,5 @@
+/* eslint-disable import/export */
+
 declare module '*.gif' {
   const content: string;
 

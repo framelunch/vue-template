@@ -17,15 +17,15 @@
     "safe-guard": "lint-staged",
     "prettier": "run-p prettier:*",
     "prettier:style": "prettier --write 'src/**/*.css'",
-    "prettier:script": "prettier --write 'src/**/*.ts'",
+    "prettier:script": "eslint --ext .ts --fix 'src/**/*.ts'",
     "prettier:json": "prettier --write 'src/**/*.json'",
-    "prettier:vue": "prettier --write 'src/**/*.vue'",
+    "prettier:vue": "eslint --ext .vue --fix 'src/**/*.vue'",
     "lint": "run-p lint:*",
     "lint:style": "stylelint 'src/**/*.css'",
     "lint:script": "eslint --ext .ts 'src/**/*.ts'",
     "lint:vue": "run-p lint:vue:*",
     "lint:vue:style": "stylelint --config .vue.stylelintrc 'src/**/*.vue'",
-    "lint:vue:script": "eslint --ext .vue -c .vue.eslintrc 'src/**/*.vue'",
+    "lint:vue:script": "eslint --ext .vue 'src/**/*.vue'",
     "precommit": "run-s safe-guard",
     "tsc": "tsc"
   },
@@ -56,7 +56,8 @@
       ],
       "*.vue": [
         "prettier:vue",
-        "lint:vue",
+        "lint:vue:style",
+        "lint:vue:script",
         "git add src/**/*.vue"
       ]
     }
@@ -85,7 +86,10 @@
     "cssnano": "^3.10.0",
     "eslint": "^4.17.0",
     "eslint-config-framelunch": "framelunch/eslint-config-framelunch#v0.3.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-config-typescript": "^1.0.2",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-typescript": "^0.8.1",
     "eslint-plugin-vue": "^4.2.2",
     "extract-text-webpack-plugin": "^3.0.2",

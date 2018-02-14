@@ -1,3 +1,5 @@
+/* eslint-disable import/first */
+
 import './common/initializer';
 import Vue from 'vue';
 

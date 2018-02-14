@@ -4,6 +4,7 @@
     "stylelint-processor-html"
   ],
   "ignoreFiles": [
+    "assets/**/*",
     "build/**/*"
   ],
   "rules": {

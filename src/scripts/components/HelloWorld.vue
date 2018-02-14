@@ -14,7 +14,7 @@ h1 {
 </style>
 
 <template>
-<div class="hello">
-  <h1>Msg: {{ msg }}</h1>
-</div>
+  <div class="hello">
+    <h1>Msg: {{ msg }}</h1>
+  </div>
 </template>
