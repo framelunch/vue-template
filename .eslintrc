@@ -2,21 +2,20 @@
   "parserOptions": {
     "parser": "typescript-eslint-parser"
   },
-  "extends": [
-    "eslint:recommended",
-    "typescript"
-  ],
-  "plugins": [
-    "typescript"
-  ],
+  "extends": ["eslint:recommended", "typescript"],
+  "plugins": ["typescript"],
   "rules": {
     "no-console": "warn",
+    "require-jsdoc": "off",
     // 未使用変数 警告 ただし、先頭に_のついている変数、引数はOKとする
-    "no-unused-vars": ["warn", {
-      "caughtErrors": "all",
-      "varsIgnorePattern": "^_",
-      "argsIgnorePattern": "^_"
-    }],
+    "no-unused-vars": [
+      "warn",
+      {
+        "caughtErrors": "all",
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
     // thisを参照しないクラスメソッドはstaticでなければいけない 無効化 オブジェクト指向ってそういうもんではないと思う
     "class-methods-use-this": "off",
     // exportが1件だけならdefaultにする 無効化 気にしない
@@ -82,4 +81,3 @@
     "no-unexpected-multiline": "error"
   }
 }
-

@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import './common/initializer';
 import Vue from 'vue';
 
 import '../styles/index.css';

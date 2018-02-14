@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
@@ -39,6 +40,7 @@ module.exports = {
   resolve,
   plugins: [
     ...plugins,
+    new webpack.NamedModulesPlugin(),
     ...views.map(({ template, filename }) => new HtmlWebpackPlugin({
       template,
       filename: `${filename}.html`,

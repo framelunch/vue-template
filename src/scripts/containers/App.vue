@@ -1,5 +1,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+
 import HelloWorld from '../components/HelloWorld.vue';
 
 @Component({
@@ -24,6 +25,6 @@ export default class App extends Vue {}
 <template>
   <main id="main" class="Main" role="main">
     Hello, vue.js
-    <HelloWorld msg="Hello world component here." />
+    <hello-world msg="Hello world component here." />
   </main>
 </template>
