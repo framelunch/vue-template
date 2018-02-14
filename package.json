@@ -24,8 +24,8 @@
     "lint:style": "stylelint 'src/**/*.css'",
     "lint:script": "eslint --ext .ts 'src/**/*.ts'",
     "lint:vue": "run-p lint:vue:*",
-    "lint:vue:style": "stylelint --config .stylelintvuerc 'src/**/*.vue'",
-    "lint:vue:script": "eslint --ext .vue -c .eslintvuerc 'src/**/*.vue'",
+    "lint:vue:style": "stylelint --config .vue.stylelintrc 'src/**/*.vue'",
+    "lint:vue:script": "eslint --ext .vue -c .vue.eslintrc 'src/**/*.vue'",
     "precommit": "run-s safe-guard",
     "tsc": "tsc"
   },
