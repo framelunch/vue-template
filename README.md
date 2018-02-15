@@ -99,3 +99,4 @@ commit時に勝手にコードを整形してくれる。
 
 - [ ] VuexでSPAモード & 静的アセット書き出し
 - [ ] サンプルプロジェクトをもうちょいいい感じに
+    - メモ https://qiita.com/kurosame/items/b3f5bee8ea73df025cb1

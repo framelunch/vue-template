@@ -11,6 +11,7 @@
     "build:source": "cross-env NODE_ENV=production webpack --progress --config tools/webpack/production.js",
     "build:dll": "cross-env NODE_ENV=production webpack --progress --config tools/webpack/dll.js",
     "build:check": "run-s build server",
+    "build:diff": "node tools/getBuildDiff",
     "clean": "rimraf build",
     "server": "cross-env NODE_ENV=production http-server ./build -p 23000 -o --cors",
     "test": "cross-env NODE_ENV=test jest",
