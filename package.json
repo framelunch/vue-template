@@ -15,6 +15,7 @@
     "clean": "rimraf build",
     "server": "cross-env NODE_ENV=production http-server ./build -p 23000 -o --cors",
     "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
     "safe-guard": "lint-staged",
     "prettier": "run-p prettier:*",
     "prettier:style": "prettier --write 'src/**/*.css'",
@@ -62,18 +63,6 @@
         "git add src/**/*.vue"
       ]
     }
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "vue",
-      "ts",
-      "js"
-    ],
-    "transform": {
-      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
-      ".(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "(\\.(test|spec))\\.(ts|tsx)$"
   },
   "devDependencies": {
     "@types/jest": "^22.1.2",
@@ -131,6 +120,7 @@
     "typescript-eslint-parser": "^13.0.0",
     "url-loader": "^0.6.2",
     "vue-eslint-parser": "^2.0.2",
+    "vue-jest": "^2.1.0",
     "vue-loader": "^14.1.1",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
